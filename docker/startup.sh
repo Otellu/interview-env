@@ -223,7 +223,8 @@ sudo cat > /home/coder/.local/share/code-server/User/settings.json <<EOF
       "connectionString": "mongodb://pizzauser:pizzapass@mongo-db:27017/testdb?authSource=testdb"
     }
   ],
-  "security.workspace.trust.enabled": false
+  "security.workspace.trust.enabled": false,
+  "files.autoSave": "off"
 }
 EOF
 
