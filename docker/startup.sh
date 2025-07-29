@@ -237,7 +237,7 @@ echo "Proxy domain: $SUBDOMAIN"
   --host 0.0.0.0 \
   --port 8080 \
   --proxy-domain="$SUBDOMAIN" \
-  "$TARGET_DIR" &
+  "$TARGET_DIR" "$TARGET_DIR/README.md"&
 
 CODE_SERVER_PID=$!
 
