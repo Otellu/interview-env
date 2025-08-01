@@ -330,6 +330,12 @@ WEBHOOK_PAYLOAD=$(cat <<EOF
 EOF
 )
 
+# Save webhook payload to file for manual use
+WEBHOOK_PAYLOAD_FILE="/tmp/webhook-payload.json"
+echo "💾 Saving webhook payload to: $WEBHOOK_PAYLOAD_FILE"
+echo "$WEBHOOK_PAYLOAD" > "$WEBHOOK_PAYLOAD_FILE"
+echo "📋 Webhook payload saved for manual use"
+
 # Send webhook with retry logic
 echo "📡 Sending webhook to: $WEBHOOK_URL"
 WEBHOOK_SUCCESS=false
@@ -361,6 +367,8 @@ done
 
 if [ "$WEBHOOK_SUCCESS" = false ]; then
   echo "❌ All webhook attempts failed"
+  echo "🔧 You can manually retry using: /home/coder/manual-webhook.sh"
+  echo "📁 Webhook payload saved to: $WEBHOOK_PAYLOAD_FILE"
 fi
 
 # Function to handle shutdown gracefully
